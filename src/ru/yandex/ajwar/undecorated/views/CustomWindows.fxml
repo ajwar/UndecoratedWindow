@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+
+<AnchorPane fx:id="mainPane" minHeight="400.0" minWidth="700.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.yandex.ajwar.undecorated.views.CustomWindowController">
+   <children>
+       <Region />
+       <Pane fx:id="topLeftPane" opacity="0.0" prefHeight="5.0" prefWidth="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+           <cursor>
+               <Cursor fx:constant="NW_RESIZE" />
+           </cursor>
+       </Pane>
+       <Pane fx:id="topRightPane" opacity="0.0" prefHeight="5.0" prefWidth="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+           <cursor>
+               <Cursor fx:constant="NE_RESIZE" />
+           </cursor>
+       </Pane>
+       <Pane fx:id="bottomRightPane" opacity="0.0" prefHeight="5.0" prefWidth="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+           <cursor>
+               <Cursor fx:constant="SE_RESIZE" />
+           </cursor>
+       </Pane>
+       <Pane fx:id="bottomLeftPane" opacity="0.0" prefHeight="5.0" prefWidth="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+           <cursor>
+               <Cursor fx:constant="SW_RESIZE" />
+           </cursor>
+       </Pane>
+       <Pane fx:id="leftPane" opacity="0.0" prefWidth="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+           <cursor>
+               <Cursor fx:constant="W_RESIZE" />
+           </cursor>
+       </Pane>
+       <Pane fx:id="rightPane" opacity="0.0" prefWidth="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+           <cursor>
+               <Cursor fx:constant="E_RESIZE" />
+           </cursor>
+       </Pane>
+       <Pane fx:id="topPane" opacity="0.0" prefHeight="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+           <cursor>
+               <Cursor fx:constant="N_RESIZE" />
+           </cursor>
+       </Pane>
+       <Pane fx:id="bottomPane" opacity="0.0" prefHeight="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+           <cursor>
+               <Cursor fx:constant="S_RESIZE" />
+           </cursor>
+       </Pane>
+      <AnchorPane fx:id="pane" maxHeight="16.0" minHeight="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="16.0">
+         <children>
+            <ImageView fx:id="maxImg" fitHeight="16.0" fitWidth="16.0" layoutX="694.0" layoutY="10.0" onMouseClicked="#maximize" pickOnBounds="true" preserveRatio="true" styleClass="my-image-max" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../../../../resource/images/Maximize_Window-32.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="restoreImg" fitHeight="15" fitWidth="15" onMouseClicked="#maximize" pickOnBounds="true" preserveRatio="true" styleClass="my-image-restore" visible="false" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../../../../resource/images/Restore_Window-32.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+            <ImageView fx:id="closeImg" fitHeight="16.0" fitWidth="16.0" layoutX="694.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="my-image-close" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../../../../resource/images/Close_Window-32.png" />
+               </image></ImageView>
+            <ImageView fx:id="minImg" fitHeight="16.0" fitWidth="16.0" layoutX="704.0" layoutY="20.0" onMouseClicked="#minimize" pickOnBounds="true" preserveRatio="true" styleClass="my-image-min" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../../../../resource/images/Minimize_Window-32.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="mainImg" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../../../resource/images/IcoMainWindowNew.png" />
+         </image>
+      </ImageView>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="32.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

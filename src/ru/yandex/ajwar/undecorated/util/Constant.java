@@ -12,6 +12,7 @@ public final class Constant {
     public static final String closeImgBackPathResource="/images/Close_Window-32_background.png";
     public static final String restoreImgPathResource="/images/Restore_Window-32.png";
     public static final String restoreImgBackPathResource="/images/Restore_Window-32_background.png";
+    private static final double SIZE_IMAGE_HALF=32.0D;
     private Constant(){
     }
 }

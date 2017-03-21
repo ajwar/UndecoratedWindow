@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -44,6 +45,10 @@ public class CustomWindowController implements Initializable{
     private AnchorPane mainPane;
     @FXML
     private AnchorPane pane;
+    @FXML
+    private BorderPane testBorderPane;
+    @FXML
+    private AnchorPane anchorPane;
     @FXML
     private ImageView mainImg;
     @FXML
@@ -87,6 +92,24 @@ public class CustomWindowController implements Initializable{
         setResizeControl(topRightPane, "top-right");
         setResizeControl(bottomLeftPane, "bottom-left");
         setResizeControl(bottomRightPane, "bottom-right");
+        //System.out.println(bottomPane.isPickOnBounds());
+        mainPane.setBackground(null);
+        //Platform.runLater(()->System.out.println(testBorderPane.getBackground().isEmpty()));
+        //mainPane.setPickOnBounds(false);
+        //System.out.println(topPane.isPickOnBounds());
+        //testBorderPane.setStyle("-fx-background-color: #cb1a33;");
+        //Platform.runLater(()->System.out.println(testBorderPane.getBackground().isEmpty()));
+       // topPane.setPickOnBounds(false);
+        Platform.runLater(()-> {
+            testBorderPane.setPickOnBounds(false);
+            anchorPane.setPickOnBounds(false);
+        });
+        topPane.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("z tuta");
+            }
+        });
 
         //Platform.runLater(this::listenerPrimaryStageMousePressedAndDragged);
         //Platform.runLater(()->EffectUtilities.makeDraggable(primaryStage,pane));
@@ -193,6 +216,7 @@ public class CustomWindowController implements Initializable{
                     eventSource.x = mouseEvent.getScreenX();
                     eventSource.y = node.prefHeight(primaryStage.getHeight());
                 }
+                mouseEvent.consume();
             }
         });
 
@@ -357,7 +381,9 @@ public class CustomWindowController implements Initializable{
                         }
                     }
                 }
+                mouseEvent.consume();
             }
+
         });
 
         // Record application height and y position.
@@ -367,6 +393,7 @@ public class CustomWindowController implements Initializable{
                     prevSize.y = primaryStage.getHeight();
                     prevPos.y = primaryStage.getY();
                 }
+                mouseEvent.consume();
             }
         });
 
@@ -389,6 +416,7 @@ public class CustomWindowController implements Initializable{
                         snapped = true;
                     }
                 }
+                mouseEvent.consume();
             }
         });
 
@@ -412,6 +440,7 @@ public class CustomWindowController implements Initializable{
                         snapped = true;
                     }
                 }
+                mouseEvent.consume();
             }
         });
     }

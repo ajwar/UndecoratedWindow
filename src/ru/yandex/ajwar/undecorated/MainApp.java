@@ -1,9 +1,11 @@
 package ru.yandex.ajwar.undecorated;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
@@ -46,14 +48,20 @@ public class MainApp extends Application {
             this.anchorPane =(AnchorPane)loader.load();
             //this.anchorPane.setBackground(Background.EMPTY);
             Scene scene=new Scene(this.anchorPane, Color.TRANSPARENT);
+            //this.anchorPane.setBackground(Background.EMPTY);
             primaryStage.centerOnScreen();
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
-            //primaryStage.initStyle(StageStyle.TRANSPARENT);
+            primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.setOnCloseRequest(event -> System.exit(0));
             mainWindowController=loader.getController();
             mainWindowController.setMainApp(this);
             mainWindowController.setPrimaryStage(primaryStage);
+            scene.addEventFilter(MouseEvent.MOUSE_PRESSED, event -> System.out.println("mouse click detected! " + event.getSource()));
+            //scene.setFill(null);
+            //scene.setFill(Color.TRANSPARENT);
+            //((AnchorPane)scene.getRoot()).setBackground(Background.EMPTY);
+            System.out.println();
             //UndecoratedHelper.addResizeListener(primaryStage);
         } catch (IOException e) {
             e.printStackTrace();
